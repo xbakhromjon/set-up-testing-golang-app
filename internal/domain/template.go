@@ -6,20 +6,8 @@ type Template struct {
 	Name string
 }
 
-// TemplateRequest create or update request to business logic
-type TemplateRequest struct {
-	Name string `json:"name"`
-}
-
-type TemplateResponse struct {
-	Id   int64
-	Name string
-}
-
-type TemplateUseCase interface {
-	// needed methods
-}
-
 type TemplateRepository interface {
 	// needed methods
+	Save(template Template) (int64, error)
+	FindById(id int64) (*Template, error)
 }
